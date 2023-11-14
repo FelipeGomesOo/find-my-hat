@@ -1,0 +1,12 @@
+.Grid{
+    text-align: center;
+    .gridRow{
+        display: flex;    
+        justify-content: center;    
+        .gridCell {
+            background-color: aqua;
+            width: 100px;
+            aspect-ratio: 1;
+        }
+    }
+}
