@@ -1,40 +1,30 @@
 import React, { useState, useEffect } from 'react'; 
 import { useGameContext  } from '../gameContext'; 
 import Grid from './Grid';
+import Player from './Player';
+import { convertGridToHTML } from '../functions/helperFunctions'; 
 
-export default function GridContainer() {   
-  
+export default function GridContainer() {      
+    const {grid} = useGameContext();
     const [renderedGrid, setRenderedGrid] = useState(null);
-    const {gameOn, grid} = useGameContext();
 
     useEffect(() => {
-      if(grid) {
-      const convertGridToHTML = () => {
-        const gridRows = grid.map((arr,index) => { 
-          return <div key={index} className={`gridRow row${index}`}>{          
-              arr.map((gridCell,index) => {
-              const gridCellClass = () => {
-                  switch(gridCell) {
-                      case '*': return "hole" ;  
-                      case 'O': return "player";
-                      case '^': return "hat";
-                      case '░': return "path";
-                      default : return null 
-                  }
-              }
-              return <div key={index} className={`gridCell ${gridCellClass()}`}>{gridCell}</div>;  
-            })}
-        </div>;        
-        }); 
-        console.log("convertGridToHTML:", gridRows); 
-        setRenderedGrid(gridRows)
-      }
-      convertGridToHTML()
-    }
-    },[grid, setRenderedGrid])      
+        const renderGrid = async () => {
+          let htmlGrid = await convertGridToHTML(grid);
+          //console.log("Grid em html: ",htmlGrid)
+          setRenderedGrid(htmlGrid);
+        } 
+         renderGrid();
+        
+    }, [grid]);     
+
     return (
       <>
-          {gameOn && <Grid>{renderedGrid}</Grid>}             
+        {renderedGrid && (
+          <>
+            <Player />
+            <Grid>{renderedGrid}</Grid>
+          </>
+        )}
       </>
-    );
-  }
+    );}

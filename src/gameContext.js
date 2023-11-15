@@ -6,10 +6,10 @@ const GameContext = createContext();
 // Provedor do contexto
 const GameProvider = ({ children }) => {
   const [gameOn, setGameOn] = useState(false);
-  const [grid, setGrid] = useState(null);
+  const [grid, setGrid] = useState(null); 
 
   return (
-    <GameContext.Provider value={{ gameOn, setGameOn, grid, setGrid}}>
+    <GameContext.Provider value={{ gameOn, setGameOn, grid, setGrid }}>
       {children}
     </GameContext.Provider>
   );

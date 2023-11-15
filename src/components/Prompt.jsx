@@ -1,4 +1,7 @@
-export default function Prompt({startHandler}) {
+import React from 'react';
+
+
+export default function Prompt({ startHandler}) {   
     return (
       <div className="Prompt">          
           <button onClick={startHandler}>Start</button>
