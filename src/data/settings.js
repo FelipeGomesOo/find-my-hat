@@ -1,6 +1,6 @@
 const gameSettings = { 
-  gameWidth: 10,
-  gameHeight: 10 
+  gameWidth: 16,
+  gameHeight: 9
 }
 
 const gameArea =  gameSettings.gameWidth * gameSettings.gameHeight

@@ -1,12 +1,38 @@
+.App{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.Game{ 
+}
+
 .Grid{
-    text-align: center;
+    flex: 1;
     .gridRow{
         display: flex;    
         justify-content: center;    
         .gridCell {
             background-color: aqua;
-            width: 100px;
+            width: 80px;
+            align-items: center;
             aspect-ratio: 1;
+            display: flex; 
+            justify-content: center; 
+        }
+        .Me{
+            position: relative;
+            .MeImg{
+                position: absolute;
+                top: -30%; 
+                width: 100%;
+                height: 100%;
+
+            }
         }
     }
+}
+.Prompt{
+    flex: 1;
 }

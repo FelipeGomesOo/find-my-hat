@@ -4,6 +4,7 @@ import Grid from './Grid';
 import Player from './Player';
 import { convertGridToHTML } from '../functions/helperFunctions'; 
 
+
 export default function GridContainer() {      
     const {grid} = useGameContext();
     const [renderedGrid, setRenderedGrid] = useState(null);

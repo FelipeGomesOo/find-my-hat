@@ -1,5 +1,9 @@
 import chars from '../data/chars';
 import {gameSettings, gameArea} from '../data/settings';
+import Me from '../components/characters/Me';
+import Hole from '../components/characters/Hole';
+import Field from '../components/characters/Field';
+import Hat from '../components/characters/Hat';
 
 const {hat, hole, field, me } = chars;
 const {gameWidth, gameHeight} = gameSettings; 
@@ -65,17 +69,14 @@ const convertGridToHTML = (grid) => {
                 return (
                   <div key={index} className={`gridRow row${index}`}>
                     {          
-                      arr.map((gridCell,index) => {
-                        const gridCellClass = () => {
+                      arr.map((gridCell,index) => {                        
                           switch(gridCell) {
-                              case '*': return "hole" ;  
-                              case 'O': return "player";
-                              case '^': return "hat";
-                              case '░': return "path";
+                              case '*': return <Me key={index} /> ;  
+                              case 'O': return <Hole key={index} />;
+                              case '^': return <Hat key={index} />;
+                              case '░': return <Field key={index} />;
                               default : return null 
                           }
-                        }
-                          return <div key={index} className={`gridCell ${gridCellClass()}`}>{gridCell}</div>;  
                         })
                       }
                   </div>
