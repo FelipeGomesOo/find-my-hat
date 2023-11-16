@@ -81,8 +81,12 @@ export default function Player(){
         ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown']
     ); 
 
+    const playerPositionStyle = {
+        transform: `translate(calc(100% * ${playerPosition.next.cell}), calc(57.5% * ${playerPosition.next.row}))`,
+    }
+
     return (
-         <div className='Player'>
+         <div className='Player' style={playerPositionStyle}>
             <img className="PlayerImg" src={svgPlayer} alt="Player" />
          </div>
     )
