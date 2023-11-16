@@ -1,9 +1,9 @@
 import chars from '../data/chars';
 import {gameSettings, gameArea} from '../data/settings';
-import Me from '../components/characters/Me';
-import Hole from '../components/characters/Hole';
-import Field from '../components/characters/Field';
-import Hat from '../components/characters/Hat';
+import Me from '../components/elements/Me';
+import Hole from '../components/elements/Hole';
+import Field from '../components/elements/Field';
+import Hat from '../components/elements/Hat';
 
 const {hat, hole, field, me } = chars;
 const {gameWidth, gameHeight} = gameSettings; 

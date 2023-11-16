@@ -1,32 +1,45 @@
+body{
+    background-color: #9fc771;
+}
 .App{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
+    background: linear-gradient(135deg, rgba(198, 211, 124, 0), #9fc771);
+
 }
 
 .Game{ 
+    
 }
 
 .Grid{ 
+    box-shadow: 0 29px 29px 0#8db363;
+    border-radius: 1.5vw;
+    background: repeating-conic-gradient( #aad37c 0% 25%,transparent 0% 50% ) top left / 12.5% 22.25%;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(16, 1fr); /* Tamanho fluido das colunas */
-    grid-template-rows: repeat(9, 1fr); /* Tamanho fluido das linhas */
-    width: 100vw; /* Largura do tabuleiro em relação à largura da viewport */
-    height:  calc(100vw * 9 / 16); /* Altura do tabuleiro em relação à largura da viewport */
-    max-width: 1200px; /* Largura máxima do tabuleiro */
-    max-height: calc(1200px * 9 / 16); /* Altura máxima do tabuleiro */
+    grid-template-columns: repeat(16, 1fr); 
+    grid-template-rows: repeat(9, 1fr); 
+    width: 100vw; 
+    height:  calc(100vw * 9 / 16); 
+    max-width: 1200px; 
+    max-height: calc(1200px * 9 / 16); 
     div {
         transition: transform 0.5s ease;
     }
-    .gridCell {
-        background-color: aqua; 
+    
+ 
+
+/* Aplica um fundo alternado entre verde e vermelho nos itens ímpares de cada linha */
+ 
+    .gridCell { 
         display: flex;
         img {
-            width:100%;
-        }
+            width:100%; 
+        } 
     }
     .Me{
         position: relative;
@@ -47,6 +60,14 @@
     z-index: 9; 
     top:-11.1%;
     padding: 0.5%; 
+}
+.Hole{
+    background:  
+    radial-gradient(rgb(125, 190, 250),rgb(72, 185, 190) 50%, rgba(61, 165, 170, 1) 75%, rgb(42, 120, 124))center;
+    //radial-gradient(rgba(255, 255, 255, 0.25), rgba(179, 224, 226, 0.123) 70%); 
+    box-shadow: inset 3px 5px 3px rgba(5, 4, 87, 0.25);
+    border-radius: 1vw;
+    border: 5px solid #9fc771;
 }
 .Prompt{ 
 }
