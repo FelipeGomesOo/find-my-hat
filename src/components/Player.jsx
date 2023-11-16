@@ -2,7 +2,8 @@ import React, {  useState } from 'react';
 import { useGameContext  } from '../gameContext'; 
 import chars from '../data/chars'; 
 import  useOnKeyDown  from '../hooks/useOnKeyDown';
-const {hat, hole, field, me } = chars;
+import svgPlayer from '../assets/me.svg';
+const {hat, hole, field, me } = chars; 
 
 export default function Player(){ 
     const { grid, setGrid } = useGameContext(); 
@@ -81,6 +82,8 @@ export default function Player(){
     ); 
 
     return (
-         <></>
+         <div className='Player'>
+            <img className="PlayerImg" src={svgPlayer} alt="Player" />
+         </div>
     )
 }

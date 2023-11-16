@@ -67,8 +67,8 @@ const convertGridToHTML = (grid) => {
         setTimeout(() => {
             const gridRows = grid.map((arr,index) => { 
                 return (
-                  <div key={index} className={`gridRow row${index}`}>
-                    {          
+                  
+                            
                       arr.map((gridCell,index) => {                        
                           switch(gridCell) {
                               case '*': return <Me key={index} /> ;  
@@ -78,8 +78,8 @@ const convertGridToHTML = (grid) => {
                               default : return null 
                           }
                         })
-                      }
-                  </div>
+                      
+                  
                 );        
             }); 
             resolve(gridRows);
