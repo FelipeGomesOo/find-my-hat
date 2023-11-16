@@ -16,7 +16,7 @@ const generateNewGrid = () => {
             const sumHat = 1;
             const sumHole = Math.ceil(gameArea * 0.2);
             const sumField = gameArea -(sumHole + sumMe + sumHat);
-            const charPairs = [[me, sumMe],[hat, sumHat],[hole, sumHole],[field, sumField]];
+            const charPairs = [[field, 1],[hat, sumHat],[hole, sumHole],[field, sumField]];
             const arrSorted = [];    
             const arrIndex = [0];
             const arrShufled = [];
@@ -47,7 +47,8 @@ const generateNewGrid = () => {
                 } 
                 newGrid.push(arr);     
             }            
-            resolve(newGrid) 
+            resolve(newGrid)
+            console.log('New Random Grid Created!')  
         }, 500);   
     })
 }
@@ -56,7 +57,8 @@ const localStoreNewGrid = (newGrid) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             localStorage.removeItem('firstGrid'); 
-            localStorage.setItem('firstGrid', JSON.stringify(newGrid));               
+            localStorage.setItem('firstGrid', JSON.stringify(newGrid));
+            console.log('Grid Stored')                
             resolve(true);
         }, 500);
     })     
@@ -65,23 +67,20 @@ const localStoreNewGrid = (newGrid) => {
 const convertGridToHTML = (grid) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const gridRows = grid.map((arr,index) => { 
-                return (
-                  
-                            
-                      arr.map((gridCell,index) => {                        
-                          switch(gridCell) {
-                              case '*': return <Me key={index} /> ;  
-                              case 'O': return <Hole key={index} />;
-                              case '^': return <Hat key={index} />;
-                              case '░': return <Field key={index} />;
-                              default : return null 
-                          }
-                        })
-                      
-                  
+            const gridRows = grid.map((arr) => { 
+                return (    
+                    arr.map((gridCell,index) => {                        
+                        switch(gridCell) {
+                            case '*': return <Me key={index} /> ;  
+                            case 'O': return <Hole key={index} />;
+                            case '^': return <Hat key={index} />;
+                            case '░': return <Field key={index} />;
+                            default : return null 
+                        }
+                    })
                 );        
-            }); 
+            });
+            console.log('Grid Rendered to HTML') 
             resolve(gridRows);
         }, 50);
     })       

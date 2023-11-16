@@ -6,12 +6,9 @@ import svgPlayer from '../assets/me.svg';
 const {hat, hole, field, me } = chars; 
 
 export default function Player(){ 
-    const { grid, setGrid } = useGameContext(); 
-    const firstPostion = {
-        previous: { row: 0, cell: 0 },
-        next: { row: 0, cell: 0 }
-    };
-    const [playerPosition , setPlayerPosition] = useState(firstPostion); 
+     
+    const { grid } = useGameContext();  
+    const [playerPosition , setPlayerPosition] = useState({ row: 0, cell: 0 }); 
        
     const changePlayerPosition = async (targetKey) => {
         console.log("Key pressed!"); 
@@ -25,64 +22,52 @@ export default function Player(){
             return keyToCoords[targetKey];
         }         
         let potential = await potentialCoords();
-        let character = await moveEvaluation(potential);       
-        changePositionState(potential, character); 
-        ifIMoveToNextCell(potential, character);        
+        let entitie = await moveEvaluation(potential);       
+        changePositionState(potential); 
+        moveConsequences(entitie);        
     }
-    const resetGrid = () => {  
-        const firstGrid = JSON.parse(localStorage.getItem('firstGrid'));      
-        setGrid(() => firstGrid);
+    const resetPlayerPosition = () => {   
         setPlayerPosition(() => {
-            return {
-                previous: { row: 0, cell:0 },
-                next: { row:0, cell:0 }                    
-            }
+            return { row:0, cell:0 }
         });     
     } 
     const moveEvaluation = (potential) => { 
         return new Promise((resolve, reject) => {                  
             if (
-                grid[playerPosition.next.row + potential.row] && 
-                grid[playerPosition.next.row + potential.row][playerPosition.next.cell + potential.cell]
+                grid[playerPosition.row + potential.row] && 
+                grid[playerPosition.row + potential.row][playerPosition.cell + potential.cell]
             ){ 
-                let character = grid[playerPosition.next.row + potential.row][playerPosition.next.cell + potential.cell] 
-                console.log("Position good to go: ",character);                 
-                resolve(character);
+                let entitie = grid[playerPosition.row + potential.row][playerPosition.cell + potential.cell] 
+                console.log("Position good to go: ",entitie);                 
+                resolve(entitie);
             }
         });           
     } 
-    const changePositionState = (potential, character) => {  
-        setPlayerPosition((old) => {                 
-            const newPosition = {
-                previous: { row: old.next.row, cell: old.next.cell },
-                next: { row: old.next.row + potential.row, cell: old.next.cell + potential.cell}                    
-            };                  
-            return newPosition;
+    const changePositionState = (potential) => {  
+        setPlayerPosition((old) => {  
+            return {row: old.row + potential.row, cell: old.cell + potential.cell} 
         });  
     }
-    const ifIMoveToNextCell = (potential, character) => { 
-        switch(character) {
-            case me: console.log("Me!"); break; 
-            case field: console.log("ina field!"); moveToNextCell(potential); break; 
-            case hole: console.log("Oops! Fell in a hole. Let's try again!");resetGrid(); break; 
-            case hat: console.log("Win!"); break;
-            default: console.log("You are out of bounds! Let's try again!", );   
-        }   
-    } 
-    const moveToNextCell = (potential) => {
-        let newGrid = [...grid];
-        newGrid[playerPosition.next.row][playerPosition.next.cell] = field;
-        newGrid[playerPosition.next.row + potential.row][playerPosition.next.cell + potential.cell] = me;
-        setGrid(newGrid);        
-    }  
-
+    const moveConsequences = (entitie) => {
+        console.log("Entitie if I move: ",entitie)
+        setTimeout(() => {
+            switch(entitie) {
+                case me: console.log("Me!"); break; 
+                case field: console.log("ina field!"); break; 
+                case hole: console.log("Oops! Fell in a hole. Let's try again!");resetPlayerPosition(); break; 
+                case hat: console.log("Win!"); break;
+                default: console.log("You are out of bounds! Let's try again!", );   
+            }             
+        },400); 
+          
+    }    
     useOnKeyDown(
         changePlayerPosition,
         ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown']
     ); 
 
     const playerPositionStyle = {
-        transform: `translate(calc(100% * ${playerPosition.next.cell}), calc(57.5% * ${playerPosition.next.row}))`,
+        transform: `translate(calc(100% * ${playerPosition.cell}), calc(57.5% * ${playerPosition.row}))`,
     }
 
     return (

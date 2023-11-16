@@ -23,7 +23,6 @@ export default function GridContainer() {
       <>
         {renderedGrid && (
           <>
-            
             <Grid><Player />{renderedGrid}</Grid>
           </>
         )}
