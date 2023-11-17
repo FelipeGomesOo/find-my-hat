@@ -1,0 +1,15 @@
+.Player{
+    position: absolute;
+    width: 6.25%; 
+    z-index: 9; 
+    top:-11.1%;
+    padding: 0.5%; 
+}
+.Hole{
+    background:  
+    radial-gradient(rgb(125, 190, 250),rgb(72, 185, 190) 50%, rgba(61, 165, 170, 1) 75%, rgb(42, 120, 124))center;
+    //radial-gradient(rgba(255, 255, 255, 0.25), rgba(179, 224, 226, 0.123) 70%); 
+    box-shadow: inset 3px 5px 3px rgba(5, 4, 87, 0.25);
+    border-radius: 1vw;
+    border: 5px solid #9fc771;
+} 

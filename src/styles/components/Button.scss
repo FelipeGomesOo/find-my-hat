@@ -1,0 +1,48 @@
+.Button{
+    font-family: 'Press Start 2p', cursive;    
+    text-transform: uppercase;     
+    border: none;      
+    transition: background 0.5s ease;    
+    &.primary {
+        background: linear-gradient( $primaryColor, $primaryLightColor);        
+        &:hover {            
+            background: linear-gradient( $primaryDarkColor, $primaryLightColor);
+        }
+        &:active {            
+            box-shadow: inset 3px 5px 3px $primaryDarkColor;
+        }
+    }
+    &.accent {
+        background: linear-gradient( $accentColor, $accentLightColor);        
+        &:hover {            
+            background: linear-gradient( $accentDarkColor, $accentLightColor);
+        }
+        &:active {            
+            box-shadow: inset 3px 5px 3px $accentDarkColor;
+        }
+    }
+    &.warning {
+        background: linear-gradient( $warningColor, $warningLightColor);
+        &:hover {
+            background: linear-gradient( $warningDarkColor, $warningLightColor);
+        }
+        &:active {
+            box-shadow: inset 3px 5px 3px $warningDarkColor;
+        }
+    }
+    &.small{
+        font-size: 1rem; 
+        padding: 0.5vw 1.5vw;
+        border-radius: 0.25vw;
+    }
+    &.medium{
+        font-size: 1.25rem; 
+        padding: 1vw 2vw;
+        border-radius: 0.5vw;
+    }
+    &.large{
+        font-size: 1.5rem; 
+        padding: 1vw 2vw;
+        border-radius: 0.5vw;
+    }
+} 

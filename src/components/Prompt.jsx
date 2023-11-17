@@ -1,10 +1,9 @@
-import React from 'react';
-
-
-export default function Prompt({ startHandler}) {   
-    return (
-      <div className="Prompt">          
-          <button onClick={startHandler}>Start</button>
-      </div>
-    );
-  }
+import React from 'react'; 
+export default function Prompt({activeCondition, children}) {  
+  return ( 
+    <div className={`Prompt ${ activeCondition ? 'promptOn' : 'promptOff'}`}>
+        <div>
+          {children}
+        </div>
+    </div>
+)}

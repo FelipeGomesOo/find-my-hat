@@ -1,0 +1,11 @@
+.Game{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    background: linear-gradient(135deg, $primaryLightColor, rgba($primaryColor, 0.8)71%)
+}
+
+.App {
+     background:repeating-conic-gradient( $primaryLightColor 0% 25%, transparent 0% 50% ) top left / 80px 80px;
+}

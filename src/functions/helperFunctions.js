@@ -46,22 +46,20 @@ const generateNewGrid = () => {
                 j++;
                 } 
                 newGrid.push(arr);     
-            }            
+            }
+            localStoreNewGrid(newGrid)            
             resolve(newGrid)
-            console.log('New Random Grid Created!')  
-        }, 500);   
+            console.log('New Random Grid Created!', newGrid);  
+        }, 0);   
     })
 }
 
-const localStoreNewGrid = (newGrid) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            localStorage.removeItem('firstGrid'); 
-            localStorage.setItem('firstGrid', JSON.stringify(newGrid));
-            console.log('Grid Stored')                
-            resolve(true);
-        }, 500);
-    })     
+const localStoreNewGrid = (newGrid) => {    
+    setTimeout(() => { 
+        localStorage.removeItem('firstGrid'); 
+        localStorage.setItem('firstGrid', JSON.stringify(newGrid));
+        console.log('Grid Stored')   
+    }, 0);       
 }     
       
 const convertGridToHTML = (grid) => {
@@ -80,9 +78,9 @@ const convertGridToHTML = (grid) => {
                     })
                 );        
             });
-            console.log('Grid Rendered to HTML') 
+            console.log('Grid Converted to HTML', gridRows); 
             resolve(gridRows);
-        }, 50);
+        }, 0);
     })       
 }
 

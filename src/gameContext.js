@@ -5,12 +5,12 @@ const GameContext = createContext();
 
 // Provedor do contexto
 const GameProvider = ({ children }) => {
-  const [gameOn, setGameOn] = useState(false);
-  const [grid, setGrid] = useState(JSON.parse(localStorage.getItem('firstGrid')) || null); 
+  const [gameStatus, setGameStatus] = useState("Unset"); // Unset - Loading... - Runing - Paused - Over - Won 
+  const [grid, setGrid] = useState(null); /* JSON.parse(localStorage.getItem('firstGrid')) ||  */
   
   
   return (
-    <GameContext.Provider value={{ gameOn, setGameOn, grid, setGrid }}>
+    <GameContext.Provider value={{ gameStatus, setGameStatus, grid, setGrid }}>
       {children}
     </GameContext.Provider>
   );

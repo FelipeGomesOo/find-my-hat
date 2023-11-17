@@ -1,30 +1,25 @@
-import React, {  useEffect } from 'react'; 
+import React, { useEffect } from 'react'; 
 import { useGameContext  } from '../gameContext'; 
 import GridContainer from './GridContainer';
-import PromptContainer from './PromptContainer';  
-import { generateNewGrid, localStoreNewGrid } from '../functions/helperFunctions'; 
+import PromptContainer from './PromptContainer';
+import { generateNewGrid } from '../functions/helperFunctions';   
 
 export default function Game() {  
-  const { gameOn, setGameOn, setGrid } = useGameContext();
+  const { gameStatus, setGameStatus, setGrid, grid  } = useGameContext();
+  useEffect(() => { 
+    console.log("Game status:",gameStatus);
+  },[gameStatus]) 
 
-  useEffect(() => {
-    let gameStatus = gameOn ? 'Game on' : 'Game off';
-    console.log(gameStatus);
-  },[gameOn])
-
- 
-  const startHandler = async () => { 
-    console.log('StartHandler Clicked!');
+  const loadGame = async () => {  
+    setGameStatus('Loading...');    
     let freshNewGrid = await generateNewGrid();
-    setGrid(freshNewGrid);
-    let localNewGrid = await localStoreNewGrid(freshNewGrid);
-    setGameOn(localNewGrid);        
+    setGrid(freshNewGrid);       
   } 
-
+  grid && console.log("New grid loaded", grid);  
   return (
     <div className="Game"> 
-       {gameOn && <GridContainer /> }
-       <PromptContainer startHandler={startHandler}/> 
+       {grid && <GridContainer loadGame={loadGame} /> }
+       <PromptContainer loadGame={loadGame} /> 
     </div>
   );
 } 

@@ -7,7 +7,7 @@ const {hat, hole, field, me } = chars;
 
 export default function Player(){ 
      
-    const { grid } = useGameContext();  
+    const { grid, setGameStatus } = useGameContext();  
     const [playerPosition , setPlayerPosition] = useState({ row: 0, cell: 0 }); 
        
     const changePlayerPosition = async (targetKey) => {
@@ -55,7 +55,7 @@ export default function Player(){
                 case me: console.log("Me!"); break; 
                 case field: console.log("ina field!"); break; 
                 case hole: console.log("Oops! Fell in a hole. Let's try again!");resetPlayerPosition(); break; 
-                case hat: console.log("Win!"); break;
+                case hat: console.log("Win!"); setGameStatus('Won'); break;
                 default: console.log("You are out of bounds! Let's try again!", );   
             }             
         },400); 

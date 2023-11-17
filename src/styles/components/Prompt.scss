@@ -1,0 +1,22 @@
+.Prompt {
+    background-color: $contrastColor;
+    width: 60vw; 
+    height:  calc(60vw * 9 / 16); 
+    max-width: 700px;
+    max-height: calc(700px * 9 / 16);
+    padding: 2vw;
+    border-radius: 2vw;
+    align-items: center;
+    justify-content: center; 
+    text-align: center; 
+    box-shadow: inset 3px 5px 3px $contrastDarkColor;
+    box-shadow: 0 30px 60px $primaryDarkColor;
+    border: 0.5vw solid $primaryLightColor;
+    padding: 0 10%;
+    &.promptOff {
+        display: none;
+    }
+    &.promptOn {
+        display: grid;
+    }
+}
