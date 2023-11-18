@@ -7,10 +7,8 @@
     display: grid;
     grid-template-columns: repeat(16, 1fr); 
     grid-template-rows: repeat(9, 1fr); 
-    width: 70vw; 
-    height:  calc(70vw * 9 / 16); 
-    max-width: 90vw; 
-    max-height: calc(90vw * 9 / 16); 
+    height: 80vh;       
+    width: calc(80vh * 16 / 9);   
     * {
         transition: transform 0.5s ease;
     } 
