@@ -1,4 +1,4 @@
-import svgField from '../../assets/field.svg';
+//import svgField from '../../assets/field.svg';
 export default function Field() {        
     return (
         <div className="Field gridCell" name='░'>

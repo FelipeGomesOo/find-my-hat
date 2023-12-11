@@ -1,4 +1,4 @@
-import svgHole from '../../assets/hole.svg';
+//import svgHole from '../../assets/hole.svg';
 export default function Hole() {        
     return (
         <div className="Hole gridCell" name='O'>
