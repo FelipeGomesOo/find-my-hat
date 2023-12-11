@@ -5,7 +5,7 @@ import Hole from '../components/elements/Hole';
 import Field from '../components/elements/Field';
 import Hat from '../components/elements/Hat';
 
-const {hat, hole, field, me } = chars;
+const {hat, hole, field } = chars;
 const {gameWidth, gameHeight} = gameSettings; 
 
 const generateNewGrid = () => {
