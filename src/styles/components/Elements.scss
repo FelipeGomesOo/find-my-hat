@@ -1,15 +1,30 @@
 .Player{
     position: absolute;
     width: 6.25%; 
+    aspect-ratio: 1 / 1;
     z-index: 9; 
-    top:-11.1%;
-    padding: 0.5%; 
+    padding: 0.5%;
+    transition: transform 0.5s ease;  
+    &.invert{
+        img {
+            transform: scaleX(-1);
+        }
+    }
+    .playerInner{
+        position: relative;
+        width: 100%;
+    }
+    img {
+        width: 100%;
+        position: absolute;
+        margin-top: -60%; 
+    }
 }
-.Hole{
-    background:  
-    radial-gradient(rgb(125, 190, 250),rgb(72, 185, 190) 50%, rgba(61, 165, 170, 1) 75%, rgb(42, 120, 124))center;
-    //radial-gradient(rgba(255, 255, 255, 0.25), rgba(179, 224, 226, 0.123) 70%); 
-    box-shadow: inset 3px 5px 3px rgba(5, 4, 87, 0.25);
-    border-radius: 1vw;
-    border: 5px solid #9fc771;
+.Hat{ 
+    position: relative; 
+    .HatImg{
+        position: absolute;
+        width: 90%;
+    }
 } 
+ 

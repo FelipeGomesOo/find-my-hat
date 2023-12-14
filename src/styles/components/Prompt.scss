@@ -10,13 +10,24 @@
     justify-content: center; 
     text-align: center; 
     box-shadow: inset 3px 5px 3px $contrastDarkColor;
-    box-shadow: 0 30px 60px $primaryDarkColor;
-    border: 0.5vw solid $primaryLightColor;
+    box-shadow: 0 30px 60px $contrastDarkColor;
+    border: 0.5vw solid $contrastDarkColor;
     padding: 0 10%;
+    position: relative;
     &.promptOff {
         display: none;
     }
     &.promptOn {
         display: grid;
+    }
+}
+.Prompt__Icon {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    img {
+        margin-top: -15%;
+        width: 25%;
     }
 }

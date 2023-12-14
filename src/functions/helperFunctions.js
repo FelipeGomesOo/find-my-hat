@@ -1,6 +1,5 @@
 import chars from '../data/chars';
-import {gameSettings, gameArea} from '../data/settings';
-import Me from '../components/elements/Me';
+import {gameSettings, gameArea} from '../data/settings'; 
 import Hole from '../components/elements/Hole';
 import Field from '../components/elements/Field';
 import Hat from '../components/elements/Hat';
@@ -69,7 +68,7 @@ const convertGridToHTML = (grid) => {
                 return (    
                     arr.map((gridCell,index) => {                        
                         switch(gridCell) {
-                            case '*': return <Me key={index} /> ;  
+                            //case '*': return <Me key={index} /> ;  
                             case 'O': return <Hole key={index} />;
                             case '^': return <Hat key={index} />;
                             case '░': return <Field key={index} />;

@@ -1,21 +1,22 @@
 .Grid{ 
-    box-shadow: 0 29px 29px 0 $primaryDarkColor;
-    border-radius: 1.5vw;
-    background: repeating-conic-gradient( $primaryLightColor 0% 25%, transparent 0% 50% ) top left / 12.5% 22.25%;
-    background-color: $primaryColor;
+    //background: repeating-conic-gradient( $primaryLightColor 0% 25%, transparent 0% 50% ) top left / 12.5% 22.25%;
+    //background-color: $primaryColor;
     position: relative;
     display: grid;
     grid-template-columns: repeat(16, 1fr); 
     grid-template-rows: repeat(9, 1fr); 
     height: 80vh;       
-    width: calc(80vh * 16 / 9);   
-    * {
-        transition: transform 0.5s ease;
-    } 
+    width: calc(80vh * 16 / 9);
+    outline: 0.25vw black solid; 
+    border-radius: 0.5vw;
+    box-shadow: 1vw 1.5vw 3vw rgba(0, 0, 0, 1);
+
     .gridCell { 
-        display: flex;
+        display: flex;  
         img {
             width:100%; 
         } 
     }     
 }
+
+ 

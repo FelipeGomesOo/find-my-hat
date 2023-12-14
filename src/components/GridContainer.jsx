@@ -35,7 +35,7 @@ export default function GridContainer({loadGame}) {
     <>
       {gameStatus === 'Runing' &&  ( 
         <>
-          <Grid><Player />{renderedGrid}</Grid>
+          <Grid><Player />{renderedGrid}  </Grid>
           <Menu loadGame={loadGame} />
         </>
       )}
