@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/find-my-hat/static/css/main.7575be83.css",
+    "main.js": "/find-my-hat/static/js/main.cd916f8a.js",
+    "static/js/787.fd50824e.chunk.js": "/find-my-hat/static/js/787.fd50824e.chunk.js",
+    "static/media/front.png": "/find-my-hat/static/media/front.31221f7937b4db5fff7e.png",
+    "static/media/side-walking.png": "/find-my-hat/static/media/side-walking.9abc425c83766990e5e6.png",
+    "static/media/back.png": "/find-my-hat/static/media/back.b214568cc42328be1196.png",
+    "static/media/promptIcon-loading.png": "/find-my-hat/static/media/promptIcon-loading.24bb4ed3e96ba782ad59.png",
+    "static/media/promptIcon-start.png": "/find-my-hat/static/media/promptIcon-start.a1cf4383ba7e7b7e9bb6.png",
+    "static/media/hat.png": "/find-my-hat/static/media/hat.10429582ebaf4387bcb8.png",
+    "static/media/promptIcon-win.png": "/find-my-hat/static/media/promptIcon-win.e870b3b8373e24c50993.png",
+    "static/media/hole.png": "/find-my-hat/static/media/hole.8ca5b8ca13c048d27206.png",
+    "static/media/tile.png": "/find-my-hat/static/media/tile.ce0aeabfafdd3bee620a.png",
+    "index.html": "/find-my-hat/index.html",
+    "main.7575be83.css.map": "/find-my-hat/static/css/main.7575be83.css.map",
+    "main.cd916f8a.js.map": "/find-my-hat/static/js/main.cd916f8a.js.map",
+    "787.fd50824e.chunk.js.map": "/find-my-hat/static/js/787.fd50824e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7575be83.css",
+    "static/js/main.cd916f8a.js"
+  ]
+}
